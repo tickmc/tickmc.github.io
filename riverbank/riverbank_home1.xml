@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="bethesty" />
+  <Content type="html">
+    <![CDATA[
+      <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script type="text/javascript">
+function change(url) {document.getElementById('large').style.backgroundImage='url('+url+')';}
+</script>
+<style type="text/css">
+body {margin:0; padding:0;}
+#large {
+width:288px; height:216px;  /* The width and height values should be equal to the largest width and height values in your images. */
+background:#fff url(https://lh6.googleusercontent.com/-n6BtlO340ls/T42VJbRzS0I/AAAAAAAACl0/iXY5wBW4S6g/s800/RiversideCafe%2520161.JPG) no-repeat center;}
+#thumbs {width:288px; /*height:115px;*/  /* i.e. 60px thumbnails height + 15px padding + 17px scrollbar height */
+background:#fff; white-space:nowrap; overflow-x:auto; overflow-y:hidden;}
+#inner {padding:10px 5px 0 4px; display:inline-block;}
+img {width:60px; height:50px; margin:0 0 0 1px;}
+</style> 
+
+<div id="large"></div>  
+<div id="thumbs">
+<div id="inner">
+<img src="https://lh6.googleusercontent.com/-n6BtlO340ls/T42VJbRzS0I/AAAAAAAACl0/iXY5wBW4S6g/s800/RiversideCafe%2520161.JPG" onclick="change('https://lh6.googleusercontent.com/-n6BtlO340ls/T42VJbRzS0I/AAAAAAAACl0/iXY5wBW4S6g/s800/RiversideCafe%2520161.JPG)">
+<img src="https://lh4.googleusercontent.com/-_wMfJ368PwM/UQURgbahXNI/AAAAAAAAE60/RuCEl5Sb-qU/s288/de2.jpg" onclick="change('https://lh4.googleusercontent.com/-_wMfJ368PwM/UQURgbahXNI/AAAAAAAAE60/RuCEl5Sb-qU/s288/de2.jpg')">
+<img src="https://lh6.googleusercontent.com/-3w7EgdX9tkU/UQURgfLrrOI/AAAAAAAAE6s/M_a2YRGoxpA/s288/de3.jpg" onclick="change('https://lh6.googleusercontent.com/-3w7EgdX9tkU/UQURgfLrrOI/AAAAAAAAE6s/M_a2YRGoxpA/s288/de3.jpg')">
+<img src="https://lh4.googleusercontent.com/-YZXG5F0rV84/UQURhGgKHWI/AAAAAAAAE7E/EcF9uc7JbAE/s288/de4.jpg" onclick="change('https://lh4.googleusercontent.com/-YZXG5F0rV84/UQURhGgKHWI/AAAAAAAAE7E/EcF9uc7JbAE/s288/de4.jpg')">
+
+</div>
+</div>
+
+    ]]>
+  </Content>
+</Module>
+
