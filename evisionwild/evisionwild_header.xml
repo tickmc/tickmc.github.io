@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="evisionwild1" />
+  <Content type="html">
+    <![CDATA[
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools-yui-compressed.js"></script>
+
+<script type="text/javascript">
+            	<!--
+					jQuery(function($){
+						
+						$('#header .headbox').each(function() {
+							
+							var cBox = $(this).find(".moduletable_content");
+							var cImg = $(this).find("img.colour");
+							
+							cBox.css('marginTop', '290px');
+							
+							$(this).mouseenter(function() {
+								
+								$(cBox).animate({marginTop:'150'}, 'fast');
+								$(cImg).fadeIn('fast');
+								
+							}).mouseleave(function() {
+								
+								$(cBox).animate({marginTop:'290'}, 'fast');
+								$(cImg).fadeOut('fast');
+								
+							});
+							
+						});
+						
+					});
+				-->
+				</script>
+<style>
+    
+    /* header  */
+div#header {
+    width: 925px;
+    margin: 0 auto;
+}
+
+div#header1 {
+    float: left;
+    width: 100%;
+}
+
+div#header2 {
+    float: right;
+    width: 100%;
+}
+
+/* advert */
+div#middle {
+    width: 92%;
+    padding: 10px 16px 20px 16px;
+    margin: 0 auto;
+    min-height: 62px;
+    overflow: hidden;
+}
+
+/* content */
+div#content {
+    width: 925px;
+    margin: 0px auto 10px auto;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+div#component, div#right, div#left {
+    float: left;
+    overflow: hidden;
+}
+
+div#right {
+	width: 286px;
+}
+
+div#component {
+    
+}
+
+.us_width .moduletable, .us_width .moduletable_menu, .us_width .moduletable_text, .us_width .moduletable_bright, .us_width .moduletable_dark, .us_width .moduletable_nohead {
+    margin-left: 10px !important;
+}
+
+.us_width:first-child .moduletable, .us_width:first-child .moduletable_menu, .us_width:first-child .moduletable_text, .us_width:first-child .moduletable_bright, .us_width:first-child .moduletable_dark, .us_width:first-child .moduletable_nohead {
+    
+}
+
+.us_width-20 {
+    width: 20%;
+}
+
+.us_width-25 {
+    width: 25%;
+}
+
+.us_width-33 {
+    width: 33.3%;
+}
+
+.us_width-50 {
+    width: 50%;
+}
+
+.us_width-100 {
+    width: 100%;
+}
+
+.module_wrap, .users_wrap {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.module_wrap:first-child, .users_wrap:first-child {
+    margin-top: 0px;
+}
+
+/* spaces between modules in component restriction section */
+div#component .us_width .moduletable, div#component .us_width .moduletable_menu, div#component .us_width .moduletable_text, div#component .us_width .moduletable_bright, div#component .us_width .moduletable_dark {
+    margin-left: 10px;
+}
+
+div#component .us_width:first-child .moduletable, div#component .us_width:first-child .moduletable_menu, div#component .us_width:first-child .moduletable_text, div#component .us_width:first-child .moduletable_bright, div#component .us_width:first-child .moduletable_dark {
+    margin-left: 0;
+}
+
+/* header */
+
+.headbox {
+    position: relative;
+	width: 223px;
+	height: 387px;
+	overflow: hidden;
+	float: left;
+	margin: 0px 10px 0px 0px !important;
+}
+
+.headbox.box4 {
+	margin: 0px !important;
+}
+
+.headbox img {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.headbox img.bw {
+	z-index: -2;
+}
+
+.headbox img.colour {
+	z-index: -1;
+	display: none;
+}
+
+.headbox .moduletable_content {
+	width: 223px;
+	/*height: 122px;*/
+	overflow: hidden;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/overlay_headbox.png');
+	color: #ffffff;
+	margin-top: 205px;
+	padding-top: 60px; 
+}
+
+.headbox h3 {
+	display: block !important;
+	height: 0px !important;
+	padding-top: 12px !important;
+	overflow: hidden !important;
+	margin-left: 12px;
+	margin-bottom: 15px;
+}
+
+.headbox.box1 h3 {
+	width: 95px !important;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/h3_headbox_evw.png');
+}
+
+.headbox.box2 h3 {
+	width: 183px !important;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/h3_headbox_ei.png');
+}
+
+.headbox.box3 h3 {
+	width: 103px !important;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/h3_headbox_ps.png');
+}
+
+.headbox.box4 h3 {
+	width: 206px !important;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/h3_headbox_cs.png');
+}
+
+.headbox p {
+	font-size: 0.8em;
+	margin: 0px 10px 10px 12px;
+	line-height: 1.2em;
+}
+
+.headbox a {
+	display: block;
+	width: 143px;
+	height: 0px;
+	padding-top: 25px;
+	overflow: hidden;
+	background-image: url('https://sites.google.com/site/evisionwild2/images/a_headbox_learn.gif');
+}
+
+div#header .moduletable h3,
+div#header .moduletable_text h3,
+div#header .moduletable_menu h3{
+	
+}
+div#header .moduletable h3 span,
+div#header .moduletable_text h3 span,
+div#header .moduletable_menu h3 span{
+	background:#101011;
+}
+div#header .moduletable a,
+div#header .moduletable_text a,
+div#header .moduletable_menu a{
+	color:#ab472c;
+}
+div#header .moduletable a:hover,
+div#header .moduletable_text a:hover,
+div#header .moduletable_menu a:hover{
+	color:#fff;
+}
+div#header .moduletable ul li,
+div#header .moduletable_text ul li,
+div#header .moduletable_menu ul li{
+	border-top:1px solid #1e1e1e;
+}
+/* advert */
+div#middle .moduletable h3,
+div#middle .moduletable_text h3,
+div#middle .moduletable_menu h3{
+	color:#101011;
+}
+div#middle .moduletable a,
+div#middle .moduletable_text a,
+div#middle .moduletable_menu a{
+	color:#101011;
+}
+div#middle .moduletable a:hover,
+div#middle .moduletable_text a:hover,
+div#middle .moduletable_menu a:hover{
+	color:#ab472c;
+}
+div#middle .moduletable ul li,
+div#middle .moduletable_text ul li,
+div#middle .moduletable_menu ul li{
+	border-top:1px solid #dcdcdc;
+}
+
+</style>
+<div id="header">
+    
+<div id="header1">
+    					<div class="moduletable headbox box1">
+			   			<div class="moduletable_content" style="margin-top: 290px;">
+				<p><img src="https://sites.google.com/site/evisionwild2/images/img_headbox1_bw.jpg" class="bw" height="387" width="223"><img src="https://sites.google.com/site/evisionwild2/images/img_headbox1_c.jpg" class="colour" height="387" width="223" style="display: none;"></p>
+<h3>Evision wild</h3>
+<p>WILD has been a recognised institution for leadership courses for over 15 Years. We know what it takes to be a great leader!</p>
+<p><a href="https://sites.google.com/site/home/overview-of-the-wild-experience">Learn more</a></p>			</div>
+		</div>
+			<div class="moduletable headbox box2">
+			   			<div class="moduletable_content" style="margin-top: 290px;">
+				<p><img src="https://sites.google.com/site/evisionwild2/images/img_headbox2_bw.jpg" class="bw" height="387" width="223"><img src="https://sites.google.com/site/evisionwild2/images/img_headbox2_c.jpg" class="colour" height="387" width="223" style="display: none;"></p>
+<h3>Educational Institutes</h3>
+<p><span style="font-family: 'Arial','sans-serif';">WILD offers opportunities for people to develop through direct personal experience and also offer excitement, fun and adventure within a framework of safety.</span></p>
+<p><a href="/home/education">Learn more</a></p>			</div>
+		</div>
+			<div class="moduletable headbox box3">
+			   			<div class="moduletable_content" style="margin-top: 290px;">
+				<p><img src="https://sites.google.com/site/evisionwild2/images/img_headbox3_bw.jpg" class="bw" height="387" width="223"><img src="https://sites.google.com/site/evisionwild2/images/img_headbox3_c.jpg" class="colour" height="387" width="223" style="display: none;"></p>
+<h3>Public Sector</h3>
+<p>WILD understand the problems facing the Public sector and with deficit cuts transforming into job cuts, the priority is identifying the potential within the existing team.</p>
+<p><a href="/home/public-sector">Learn more</a></p>			</div>
+		</div>
+			<div class="moduletable headbox box4">
+			   			<div class="moduletable_content" style="margin-top: 290px;">
+				<p><img src="https://sites.google.com/site/evisionwild2/images/img_headbox4_bw.jpg" class="bw" height="387" width="223"><img src="https://sites.google.com/site/evisionwild2/images/img_headbox4_c.jpg" class="colour" height="387" width="223" style="display: none;"></p>
+<h3>Corporate Organisations</h3>
+<p>WILD's team building and leadership courses have a wide range of benefits, both to the individual and the organisation.</p>
+<p><a href="/home/corporate">Learn more</a></p>			</div>
+		</div>
+	
+				</div>
+</div>
+ ]]>
+  </Content>
+</Module>
