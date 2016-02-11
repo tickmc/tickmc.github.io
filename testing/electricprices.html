@@ -1,0 +1,497 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>UD Group Electric Pricing Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <style>
+        #ui-datepicker-div {
+            display: none;
+        }
+        input.checkbox, input.radio {
+            width: 20px;
+            min-height: 20px;
+            height: 20px;
+            box-shadow: none;
+        }
+        input.checkbox:focus, input.radio:focus {
+            box-shadow: none;
+        }
+        tr#extrainfo td {
+            padding-left: 24px;
+        }
+    </style>
+</head>
+<body>
+    <p />
+    <div class="container form-horizontal">
+        <div class="well padded clearfix" id="results-requested" style="padding-top: 15px; padding-bottom: 20px; width:100%">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>UDGroup Electric Pricing API call example.</h3>
+                </div>
+            </div>
+            <div id="divlicencecode" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Licence code:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="licencecode" class="form-control" value="" />
+                    </div>
+                </div>
+            </div>
+            <div id="divmascaradeuser" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">User Name:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="mascaradeuser" class="form-control" value="Example" />
+                    </div>
+                </div>
+            </div>
+            <div id="divaddressid" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Address ID:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="addressid" class="form-control id" value="115055_7" />
+                    </div>
+                </div>
+            </div>
+            <div id="divtline" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">MPAN Top line:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="tline" class="form-control number"  value="03801131" maxlength="8" />
+                    </div>
+                </div>
+            </div>
+            <div id="divbline" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">MPAN Bottom line:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="bline" class="form-control number"  value="1620000428779" maxlength="13" />
+                    </div>
+                </div>
+            </div>
+            <div id="divusage" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="col-md-12 col-sm-offset-4 col-md-offset-3" id="divnoprompts" style="display: none">
+                    <p style="color: red">Unable to get rates for this MPAN, please check your details.</p>
+                </div>
+                <div class="form-group" id="divday">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Day Usage:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="dayusage" class="form-control number" value="20000" maxlength="6"/>
+                    </div>
+                </div>
+                <div class="form-group" id="divnight" style="display: none">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Night Usage:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="nightusage" class="form-control number" value="" maxlength="6" />
+                    </div>
+                </div>
+                <div class="form-group" id="divwend" style="display: none">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Weekend Usage:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="wendusage" class="form-control number" value="" maxlength="6" />
+                    </div>
+                </div>
+            </div>
+            <div id="divrenewal" class="h5 row" data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Renewal:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input type="checkbox" class="form-control checkbox" id="renewal"/>
+                    </div>
+                </div>
+            </div>
+            <div id="divcursup" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Current Supplier:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <select id="cmbcursup" onchange="self.focus();" class="form-control">
+                            <option selected="selected"></option>
+                            <option>Axis</option>
+                            <option>British Gas</option>
+                            <option>Corona Energy</option>
+                            <option>Dual Energy</option>
+                            <option>EDF</option>
+                            <option>E-ON</option>
+                            <option>Extra Energy</option>
+                            <option>Gazprom</option>
+                            <option>GDF</option>
+                            <option>Haven</option>
+                            <option>Hudson Energy</option>
+                            <option>Npower</option>
+                            <option>Opus</option>
+                            <option>OVO</option>
+                            <option>Scottish And Southern</option>
+                            <option>Scottish Power</option>
+                            <option>Total Gas And Power</option>
+                            <option>United Gas And Power</option>
+                            <option>Yorkshire Gas And Power</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="divrenewaldate" class="h5 row" data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Renewal Date:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input type="text" class="form-control" id="renewaldate" value="31 Jan 2016"/>
+                    </div>
+                </div>
+            </div>
+            <div id="divcot" class="h5 row" data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">COT:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input type="checkbox" class="form-control checkbox" id="cot" />
+                    </div>
+                </div>
+            </div>
+            <div id="divuplift" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Uplift:</label>
+                    <div class="col-sm-6 col-md-4">
+                        <input id="uplift" class="form-control decimal" value="0.2" maxlength="4"/>
+                    </div>
+                </div>
+            </div>
+            <div id="divddcc" class="h5 row" data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Direct Debit (Monthly):</label>
+                    <div class="col-sm-6 col-md-9">
+                        <input type="radio" class="form-control radio" name="ddcc" id="directdebitm" checked="checked"/>
+                    </div>
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Direct Debit (Quarterly):</label>
+                    <div class="col-sm-6 col-md-9">
+                        <input type="radio" class="form-control radio" name="ddcc" id="directdebitq" />
+                    </div>
+                    <label class="col-sm-4 col-md-3 col-lg-3 control-label">Cash Cheque:</label>
+                    <div class="col-sm-6 col-md-9">
+                        <input type="radio" class="form-control radio" name="ddcc" id="cashcheque" />
+                    </div>
+                </div>
+            </div>
+            <div id="divsubmit" class="h5 row " data-content="" title="" data-toggle="popover" data-placement="right">
+                <div class="form-group">
+                    <div class="col-sm-6 col-md-4">
+                        <button id="btnsubmit" type="submit" class="btn btn-default">Get Prices</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="noMargins padding-bottom-15"><strong>How it works:</strong></h4>
+                <div style="margin-top: 15px;">
+                    <p>This example demonstrates an API call for Electric Pricing.</p>
+                    <p>The source of this page shows a JSON Formatted data structure POSTed to the API call. A JSON data structure is returned containing a Rates and Standing Charges for a list of suppliers for the entered Renewal Date.</p>
+                    <p>This API call has a restricted number of suppliers, and uses default settings to return the rates.</p>
+                    <p>The production API calls behave on the same principles as this example, and every API call that requires data to be POSTed or PUTed to it has a different JSON data structure that it expects in the payload, and a different JSON data structure that it returns. </p>
+                    <table id="tbprices" class="table-bordered table table-striped">
+                        <thead>
+                            <tr>
+                                <th id="supplier">Supplier</th>
+                                <th id="dayrate">Day Rate</th>
+                                <th id="nightrate">Night Rate</th>
+                                <th id="wendrate">Weekend Rate</th>
+                                <th id="sc">Standing Charge</th>
+                                <th id="term">Term</th>
+                                <th id="cost">Cost Per Year</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbpricesbody"></tbody>
+                    </table>
+                </div>
+                <table id="tblTimings" class="table-bordered table table-striped">
+                    <thead>
+                        <tr>
+                            <th id="val">Request Time</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="footer" class="col-md-12">               
+        </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var contractdate = $("#renewaldate").datepicker({ dateFormat: 'yy-mm-dd' }).val();
+             $("#renewaldate").val($("#renewaldate").datepicker("setDate", new Date()).datepicker("setDate", "+1m -" + new Date().getDate() + "d").val());
+       });
+
+        var apiurl = "udcoreapi.co.uk";
+
+        var mplurl = "udcoreapi.co.uk";
+
+        $('.number').keypress(function (e) {
+            if (/\D\b/g.test(String.fromCharCode(e.charCode))) {
+                // Filter non-digits from input value.
+                e.preventDefault();
+            }
+        });
+
+        $('.decimal').keypress(function (e) {
+            var dp = (this.value + String.fromCharCode(e.charCode)).match(/([\_])/g);
+            if (/[^\d\.]\b/g.test(String.fromCharCode(e.charCode)) || ((dp == null ? false : dp.length > 1) && !(this.selectionStart <= this.value.indexOf(".") && this.value.indexOf(".") < this.selectionEnd))) {
+                // Filter non-digits from input value.
+                e.preventDefault();
+            }
+        });
+
+        $('.id').keypress(function (e) {
+            if (/[^\d_]\b/g.test(String.fromCharCode(e.charCode))) {
+                // Filter non-digits from input value.
+                e.preventDefault();
+            }
+        });
+
+        $("#tline, #bline, #addressid").on("input", function () {
+            GetNumberOfPrompts($(this).attr('id'));
+        });        
+
+        $(":input").blur(function () {
+            ValidateFields();
+        });
+
+        String.format = function() {
+            var s = arguments[0];
+            for (var i = 0; i < arguments.length - 1; i++) {
+                var reg = new RegExp("\\{" + i + "\\}", "gm");
+                s = s.replace(reg, arguments[i + 1]);
+            }
+            return s;
+        };
+
+        function ValidMPAN(tline, bline) {
+            if (/^0[0-8]\d{6}$/.test(tline) && /^(1\d|2[0-3])\d{11}$/.test(bline)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+		
+		function ValidSecurityDetails(LicenceCode, mascaradeuser) {
+			if (LicenceCode.length === 0 || mascaradeuser.length === 0) {
+				return false;
+			}
+			return true;
+		};
+
+
+
+        var noofprompts = 1;
+
+        function GetNumberOfPrompts(changedfield) {
+			var LicenceCode = $("#licencecode").val();
+			var mascaradeuser = $("#mascaradeuser").val();
+            var tline = $("#tline").val();
+            var bline = $("#bline").val();
+            if ((ValidMPAN(tline, bline) || /^\d+_\d+$/g.test($("#addressid").val()))) {
+				if (!ValidSecurityDetails(LicenceCode, mascaradeuser)) {
+					alert("Please check that you have entered your security details.");
+				} else {
+					var postdata = { promptsSearch: { AddressId: $("#addressid").val(), MPANTop: tline, MPANBottom: bline , SecurityDetails: { LicenceCode: LicenceCode, mascaradeuser: mascaradeuser } } };
+					$.ajax({
+						type: "POST",
+						url: String.format("https://{0}/MPANLookupService.svc/web/prompts", mplurl),
+						data: JSON.stringify(postdata),
+						contentType: "application/json; charset=utf-8",
+						dataType: "json",
+						processData: true,
+						success: function (data) {
+							noofprompts = data.GetNumberOfPromptsResult.NumberOfPrompts;
+							if (noofprompts > 0) {
+								$("#divday").show();
+								var prompts = data.GetNumberOfPromptsResult.ThePrompts;
+								if (prompts.indexOf("Night") > -1) {
+									$("#divnight").show();
+								} else {
+									$("#divnight").hide();
+								}
+								if (prompts.indexOf("Weekend") > -1) {
+									$("#divwend").show();
+									$("#wendrate").show();
+								} else {
+									$("#divwend").hide();
+								}
+								$("#divnoprompts").hide();
+								$("#btnsubmit").prop("disabled", false);
+							} else {
+								$("#divday").hide();
+								$("#divnight").hide();
+								$("#divwend").hide();
+								$("#divnoprompts").show();
+								$("#btnsubmit").prop("disabled", true);
+							}
+						},
+						error: function (xhr) {
+							alert(xhr.responseText);
+						}
+					});
+				}
+            } else {
+                $("#btnsubmit").prop("disabled", true);
+            }
+        };
+
+        function ValidateFields() {
+            if ($("#dayusage").val() == "") {
+                $("#dayusage").val(0);
+            }
+            if ($("#nightusage").val() == "") {
+                $("#nightusage").val(0);
+            }
+            if ($("#wendusage").val() == "") {
+                $("#wendusage").val(0);
+            }
+            if ($("#uplift").val().indexOf(".") == 0) {
+                $("#uplift").val(Number("0" + $("#uplift").val()).toFixed(2));
+            }
+            if ($("#uplift").val().indexOf(".") == $("#uplift").val().length - 1) {
+                $("#uplift").val($("#uplift").val().substring(0, $("#uplift").val().length - 1));
+            }
+        }
+
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+                $("#tbpricesbody").empty();
+                $("#footer").empty();
+				var LicenceCode = $("#licencecode").val();
+				var mascaradeuser = $("#mascaradeuser").val();
+				if (!ValidSecurityDetails(LicenceCode, mascaradeuser)) {
+					alert("Please check that you have entered your security details.");
+				} else {
+					var postdata = {
+						quoteDetails: {
+                        Contact: { ContactName: 'Dani Cunningham', Telephone: { Number: '01234567890' }, EmailAddress: 'danicunningham@udgroup.co.uk' },
+							SecurityDetails: { LicenceCode: LicenceCode, mascaradeuser: mascaradeuser },
+							ElectricSupply: {
+								DayConsumption: { Amount: $("#dayusage").val(), Type: "Day" },
+								NightConsumption: { Amount: $("#nightusage").is(":visible") ? $("#nightusage").val() : 0, Type: "Night" },
+								WendConsumption: { Amount: $("#wendusage").is(":visible") ? $("#wendusage").val() : 0, Type: "Weekend" },
+								MPANTop: $("#tline").val(),
+								MPANBottom: $("#bline").val(),
+								ContractEndDate: $("#renewaldate").val(),
+								NoOfPrompts: noofprompts,
+								AddressId: $("#addressid").val()
+							},
+							Uplift: $("#uplift").val().length > 0 ? $("#uplift").val() : null,
+							Renewal: $("#renewal")[0].checked,
+							CurrentSupplier: $("#cmbcursup").val(),
+							COT: $("#cot")[0].checked,
+							PaymentMethod: $("#cashcheque")[0].checked ? "Cash Cheque" : $("#directdebitm")[0].checked ? "Direct Debit (Monthly)" : "Direct Debit (Quarterly)",
+							QuoteDefinitions: [
+								{ Supplier: "Axis", Plans: [{ Duration: 1 }, { Duration: 2 }] },
+								{ Supplier: "British Gas", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Corona Energy", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 4 }, { Duration: 5 }] },
+								{ Supplier: "Dual Energy", Plans: [{ Duration: 2, PlanType: "Fixed" }, { Duration: 3, PlanType: "Fixed" }, { Duration: 3, PlanType: "APR" }] },
+								{ Supplier: "E-ON", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Extra Energy", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "EDF", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 4 }] },
+								{ Supplier: "Gazprom", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "GDF", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 4 }, { Duration: 5 }] },
+								{ Supplier: "Haven", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Hudson Energy", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "United Gas And Power", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Npower", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Opus", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Opus Web", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "OVO", Plans: [{ Duration: 1 }, { Duration: 2 }] },
+								{ Supplier: "Scottish And Southern", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 4 }] },
+								{ Supplier: "Scottish Power", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }] },
+								{ Supplier: "Total Gas And Power", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 4 }, { Duration: 5 }] },
+								{ Supplier: "Yorkshire Gas And Power", Plans: [{ Duration: 1 }, { Duration: 2 }, { Duration: 3 }, { Duration: 3, PlanType: "Review" }, { Duration: 5, PlanType: "Review" }] },
+							],
+							Settings: [
+								{ "key": "BG_WithoutSC", "value": false },
+								{ "key": "Corona_FixedRates", "value": true },
+								{ "key": "Corona_AllInclusiveRates", "value": false },
+								{ "key": "Dong_SCType", "value": "normal" },
+								{ "key": "CreditScore", "value": 50 },
+								{ "key": "EDFSME_RateType", "value": "Low Price/Low Commission" },
+								{ "key": "EDFSME_OnePlusYear", "value": true },
+								{ "key": "EON_ExcludeDiscounts", "value": false },
+								{ "key": "Gazprom_LowSC", "value": false },
+								{ "key": "Gazprom_WithSC", "value": false },
+								{ "key": "Haven_ProductType", "value": "complete" },
+								{ "key": "Haven_Amr_Rates", "value": false },
+								{ "key": "Opus_BaseRates", "value": false },
+								{ "key": "Opus_GasWithSC", "value": true },
+								{ "key": "OVO_GreenRates", "value": false },
+								{ "key": "SSE_AmrRates", "value": false },
+								{ "key": "SSE_IncludeFitsAndDDDiscount", "value": true },
+								{ "key": "TGP_ReducedYearMonths", "value": 0 },
+								{ "key": "TGP_GasWithSC", "value": false },
+								{ "key": "TGP_ElecBasketRates", "value": false },
+								{ "key": "TGP_GasBasketRates", "value": false },
+								{ "key": "UGP_LowCreditRates", "value": false },
+								{ "key": "UGP_PubRates", "value": false },
+								{ "key": "YGP_CommsType", "value": "Monthly" },
+								{ "key": "YGP_SCharge", "value": false }
+							]
+						}
+					};
+					var start_time = Date.now();
+					$.ajax({
+						type: "POST",
+						url: String.format("https://{0}/Service.svc/web/electricprices", apiurl),
+						data: JSON.stringify(postdata),
+						contentType: "application/json; charset=utf-8",
+						dataType: "json",
+						processData: true,
+						success: function (data) {
+							if (data.GetElectricRatesResult.Error != null) {
+								alert(data.GetElectricRatesResult.Error.Message);
+							}
+							else {
+								var request_time = Date.now() - start_time;
+								start_time = "";
+								$("#tblTimings > tbody:last-child").append("<tr><td>" + request_time + "</td></tr>");
+								var cols = 7;
+								if (!$("#nightusage").is(":visible")) {
+									$("#nightrate").hide();
+									cols--;
+								} else {
+									$("#nightrate").show();
+								}
+								if (!$("#wendusage").is(":visible")) {
+									$("#wendrate").hide();
+									cols--;
+								} else {
+									$("#wendrate").show();
+								}
+								$.each(data.GetElectricRatesResult.Rates, function (j, rate) {
+									if (rate.RawAnnualPrice != 0) {
+										var $tr = $('<tr>').append(
+											$('<td>').text(rate.Supplier),
+											$('<td>').text(rate.DayUnitrate),
+											$("#nightusage").is(":visible") ? $('<td>').text(rate.NightUnitrate != null ? rate.NightUnitrate : "") : "",
+											$("#wendusage").is(":visible") ? $('<td>').text(rate.WendUnitrate != null ? rate.WendUnitrate : "") : "",
+											$('<td>').text(rate.StandingCharge != null ? rate.StandingCharge : 0),
+											$('<td>').text(rate.Term),
+											$('<td>').text(rate.AnnualPrice)
+										).appendTo('#tbprices');
+										if (rate.ExtraInfo != null && rate.ExtraInfo != "") {
+											$('<tr id="extrainfo">').append($('<td colspan="' + cols + '">').text(rate.ExtraInfo)).appendTo('#tbprices');
+										}
+									}
+									$("#footer").append(rate.FooterMessage);
+								});
+							}
+						},
+						error: function (xhr) {
+							alert(xhr.responseText);
+						}
+					});
+				}
+            });
+        });
+    </script>
+</body>
+</html>  
