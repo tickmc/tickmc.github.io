@@ -1,0 +1,27 @@
+<Module>
+<ModulePrefs title="Glasscrafts"/>
+<Content type="html">
+<![CDATA[
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<script type="text/javascript"> function change(url) {document.getElementById('large').style.backgroundImage='url('+url+')';} </script> 
+<style type="text/css"> 
+body {margin:0; padding:0;} 
+#large { width:509px; height:484px; 
+/* The width and height values should be equal to the largest width and height values in your images. */ 
+background:#993333 url(https://lh3.googleusercontent.com/-vwysuQcsjjE/TqF4d7UWsOI/AAAAAAAAAGo/A3uBk4wr5rk/s576/1.jpg) no-repeat center;} 
+#thumbs {width:509px; /*height:115px;*/ /* i.e. 60px thumbnails height + 15px padding + 17px scrollbar height */ 
+background:#993333; white-space:nowrap; overflow-x:auto; overflow-y:hidden;} #inner {padding:10px 5px 0 4px; display:inline-block;} 
+img {width:80px; height:70px; margin:0 0 0 1px;} 
+</style> 
+<div id="large"></div> 
+<div id="thumbs"> 
+<div id="inner"> 
+<img src="https://lh3.googleusercontent.com/-vwysuQcsjjE/TqF4d7UWsOI/AAAAAAAAAGo/A3uBk4wr5rk/s576/1.jpg" onclick="change('https://lh3.googleusercontent.com/-vwysuQcsjjE/TqF4d7UWsOI/AAAAAAAAAGo/A3uBk4wr5rk/s576/1.jpg')"> 
+<img src="https://lh3.googleusercontent.com/-s51g9KQtvik/TqF4cfsst-I/AAAAAAAAAGg/zX8m3mQrLTc/s512/2.jpg" onclick="change('https://lh3.googleusercontent.com/-s51g9KQtvik/TqF4cfsst-I/AAAAAAAAAGg/zX8m3mQrLTc/s512/2.jpg')"> 
+<img src="https://lh5.googleusercontent.com/-kqMTVdzK4TE/TrUVV_j0MPI/AAAAAAAAAKY/EFFwtU6Xv-k/s576/1.jpg" onclick="change('https://lh5.googleusercontent.com/-kqMTVdzK4TE/TrUVV_j0MPI/AAAAAAAAAKY/EFFwtU6Xv-k/s576/1.jpg')"> 
+</div> 
+</div>
+<!-- gadget in Sites w 550px h 697px -->
+]]>
+</Content>
+</Module>
