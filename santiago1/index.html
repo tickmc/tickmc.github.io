@@ -1,0 +1,67 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @tickmc
+ Watch 1
+  Star 0
+  Fork 0 welbinator/which-chromebook
+ Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs
+Branch: master Find file Copy pathwhich-chromebook/index.htm
+0a6b6e6  an hour ago
+@welbinator welbinator Update index.htm
+1 contributor
+RawBlameHistory    52 lines (35 sloc)  1.65 KB
+<!DOCTYPE html>
+<html>
+  <head>
+  <script>
+function appear(selector) {
+    var list = document.querySelectorAll(selector);
+    for (var i = 0; i < list.length; i++) {
+        list[i].style.display = "block";
+        
+    }
+};
+function disappear(selector) {
+    var list = document.querySelectorAll(selector);
+    for (var i = 0; i < list.length; i++) {
+        list[i].style.display = "none";
+        
+    }
+};
+</script>
+</head>
+<body>
+
+<h1>Which Chromebook Should you Buy?</h1>
+
+<p>Select the things you're looking for and devices that match those features will pop up!</p>
+
+<!-- ** So I've figured out how to make other irrelevant options disappear after you select one. For example, if I select "Acer" then "Asus" should no longer be an option because there is no Chromebook that is both built by Acer and Asus. HOWEVER I do not know how to make it reset when a checkbox is unchecked -->
+
+Form Factor:
+<form action="demo_form.asp" method="get">
+  <input type="checkbox" onclick="appear('.convertible');" name="convertibles" value="Convertibles">Convertibles<br>
+</form>
+
+OEM:
+<form action="demo_form.asp" method="get">
+  <input type="checkbox" onclick="appear('.acer'); disappear('.asuscheckbox');">Acer<br>
+  <input class="asuscheckbox" type="checkbox" onclick="appear('.asus')"><span class="asuscheckbox">Asus</span><br>
+</form>
+
+
+
+
+<img class="convertible acer" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/acer-r11-title.png" style="width:100px">
+<img class="convertible asus" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/asus-flip-title2.png" style="width:100px">
+
+
+
+</body>
+</html>
+Status API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Contact Help
