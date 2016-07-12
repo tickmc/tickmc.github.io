@@ -3,7 +3,7 @@
   <head>
   <script>
 
-function dealwithit(coolcat, checkbox_this) {
+function dealwithit(coolcat) {
   //alert('hi'); 
   
     var list = document.querySelectorAll('img');
@@ -40,7 +40,7 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables" class="formfactor">
+    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
@@ -48,11 +48,11 @@ Form Factor:
 OEM:
 <ul>
   <li>
-  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit(i_oem);" id="acer" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit(i_oem);" id="acer">
   <label for="acer">Acer</label>
   </li>
   <li>
-  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit(i_oem);" id="asus" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit(i_oem);" id="asus">
   <label for="asus">Asus</label>
   </li>
 </ul>
