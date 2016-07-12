@@ -18,7 +18,7 @@ function disappear(selector) {
     }
 };
 
-function dealwithit(coolcat) {
+function dealwithit(coolcat, val) {
   //alert('hi'); 
   
     var list = document.querySelectorAll('img');
@@ -31,8 +31,9 @@ function dealwithit(coolcat) {
       
       
       
-      if()
-          chromebooks[x][y].style.display = "block";
+      if(chromebooks[x][coolcat] == val)
+          //.style.display = "block";
+          alert(0);
         }
     }
     
@@ -53,16 +54,16 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables" class="formfactor">
+    <input type="checkbox" value='convertable' onclick="dealwithit(i_formfactor, this.value);" id="convertables" class="formfactor">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
 
 OEM:
 <form action="#">
-  <input type="checkbox" value='Acer' onclick="dealwithit(i_oem);" id="acer" class="oem">
+  <input type="checkbox" value='Acer' onclick="dealwithit(i_oem, this.value);" id="acer" class="oem">
   <label for="acer">Acer</label>
-  <input type="checkbox" value='Asus' onclick="dealwithit(i_oem);" id="asus" class="oem">
+  <input type="checkbox" value='Asus' onclick="dealwithit(i_oem, this.value);" id="asus" class="oem">
   <label for="asus">Asus</label>
 </form>
 
