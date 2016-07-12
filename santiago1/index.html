@@ -17,6 +17,14 @@ function disappear(selector) {
         
     }
 };
+
+function dealwithit(coolcat,typecat) {
+    var list = document.querySelectorAll("." + typecat);
+    for (var i = 0; i < list.length; i++) {
+        list[i].style.display = "none";
+        
+    }
+};
 </script>
 </head>
 <body>
