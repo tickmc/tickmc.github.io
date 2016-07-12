@@ -17,7 +17,8 @@ function dealwithit(coolcat, checkbox_this) {
       var checkboxlist = document.querySelectorAll('input:checkbox');
       
       for(var y = 0; y < checkboxlist.length; y++) {
-        if(chromebooks[x][coolcat] == checkbox_this.value && checkbox_this.checked)
+        
+        if(chromebooks[x][coolcat] == checkboxlist[y].value && checkboxlist[y].checked)
         {
             document.getElementById(chromebooks[x][i_id]).style.display = "block";
           
@@ -39,7 +40,7 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" value='convertable' onclick="dealwithit(i_formfactor, this);" id="convertables" class="formfactor">
+    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables" class="formfactor">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
@@ -47,11 +48,11 @@ Form Factor:
 OEM:
 <ul>
   <li>
-  <input type="checkbox" value='Acer' onclick="dealwithit(i_oem, this);" id="acer" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit(i_oem);" id="acer" class="oem">
   <label for="acer">Acer</label>
   </li>
   <li>
-  <input type="checkbox" value='Asus' onclick="dealwithit(i_oem, this);" id="asus" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit(i_oem);" id="asus" class="oem">
   <label for="asus">Asus</label>
   </li>
 </ul>
