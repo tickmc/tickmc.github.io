@@ -18,14 +18,25 @@ function disappear(selector) {
     }
 };
 
-function dealwithit(coolcat,selector) {
+function dealwithit(coolcat) {
   //alert('hi'); 
   
-    var list = document.querySelectorAll(selector);
+    var list = document.querySelectorAll('img');
+    //blank all images 
     for (var i = 0; i < list.length; i++) {
-        list[i].style.display = "block";
-        
+        list[i].style.display = "none";
     }
+    
+    for (var x = 0; x < chromebooks.length; i++) {
+      
+      
+      
+      if()
+          chromebooks[x][y].style.display = "block";
+        }
+    }
+    
+    
 };
 </script>
 </head>
@@ -42,24 +53,40 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" onclick="dealwithit('ff','.convertable');" id="convertables">
+    <input type="checkbox" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables" class="formfactor">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
 
 OEM:
 <form action="#">
-  <input type="checkbox" onclick="dealwithit('oem','.acer');">Acer<br>
-  <input class="asuscheckbox" type="checkbox" onclick="appear('.asus')"><span class="asuscheckbox">Asus</span><br>
+  <input type="checkbox" value='Acer' onclick="dealwithit(i_oem);" id="acer" class="oem">
+  <label for="acer">Acer</label>
+  <input type="checkbox" value='Asus' onclick="dealwithit(i_oem);" id="asus" class="oem">
+  <label for="asus">Asus</label>
 </form>
 
 
 
 
-<img class="convertable acer" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/acer-r11-title.png" style="width:100px">
-<img class="convertable asus" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/asus-flip-title2.png" style="width:100px">
+<img id='r11a' class="convertable acer" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/acer-r11-title.png" style="width:100px">
+<img id='flipa' class="convertable asus" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/asus-flip-title2.png" style="width:100px">
 
 
 
 </body>
+<script>
+  //pop chromebooks array
+  var chromebooks = [
+    ['chromebook-name', 'oem',  'formfactor',          'ID']
+    ['Flip',            'Asus', 'convertable',          '#flipa']
+    ['R11',             'Acer', 'convertable',          '#r11a']
+    
+    ]
+  
+  //gobals
+    i_oem = 1;
+    i_formfactor = 2;
+    i_id = 3;
+</script>
 </html>
