@@ -18,8 +18,8 @@ function disappear(selector) {
     }
 };
 
-function dealwithit(coolcat,typecat) {
-    var list = document.querySelectorAll("." + typecat);
+function dealwithit(coolcat,selector) {
+    var list = document.querySelectorAll(selector);
     for (var i = 0; i < list.length; i++) {
         list[i].style.display = "none";
         
@@ -40,14 +40,14 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" onclick="dealwithit('ff','convertible');" id="convertibles">
+    <input type="checkbox" onclick="dealwithit('ff',.convertible);" id="convertibles">
     <label for="convertibles">Convertables</label>
   </li>
 </ul>
 
 OEM:
 <form action="#">
-  <input type="checkbox" onclick="dealwithit(,'oem','acer');">Acer<br>
+  <input type="checkbox" onclick="dealwithit(,'oem',.acer);">Acer<br>
   <input class="asuscheckbox" type="checkbox" onclick="appear('.asus')"><span class="asuscheckbox">Asus</span><br>
 </form>
 
