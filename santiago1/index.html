@@ -60,12 +60,16 @@ Form Factor:
 </ul>
 
 OEM:
-<form action="#">
+<ul>
+  <li>
   <input type="checkbox" value='Acer' onclick="dealwithit(i_oem, this);" id="acer" class="oem">
   <label for="acer">Acer</label>
+  </li>
+  <li>
   <input type="checkbox" value='Asus' onclick="dealwithit(i_oem, this);" id="asus" class="oem">
   <label for="asus">Asus</label>
-</form>
+  </li>
+</ul>
 
 
 
@@ -80,8 +84,8 @@ OEM:
   //pop chromebooks array
   var chromebooks = [
     ['chromebook-name', 'oem',  'formfactor',          'ID'],
-    ['Flip',            'Asus', 'convertable',          '#flipa'],
-    ['R11',             'Acer', 'convertable',          '#r11a']
+    ['Flip',            'Asus', 'convertable',          'flipa'],
+    ['R11',             'Acer', 'convertable',          'r11a']
     
     ]
   
