@@ -19,7 +19,11 @@ function dealwithit(coolcat) {
       
       for(var y = 0; y < checkboxlist.length; y++) {
         
-        if(chromebooks[x][coolcat] == checkboxlist[y].value && checkboxlist[y].checked)
+        if(
+            chromebooks[x][coolcat] == checkboxlist[y].value && 
+            //checkboxlist[y].getAttribute("data-coolcat") == 'x' &&
+            checkboxlist[y].checked
+            )
         {
             document.getElementById(chromebooks[x][i_id]).style.display = "block";
           
