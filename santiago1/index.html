@@ -19,7 +19,7 @@ function dealwithit() {
       //alert(checkboxlist.length);
       //alert(x);
       for(var y = 0; y < checkboxlist.length; y++) {
-        //alert(checkboxlist[y].getAttribute("data-coolcat"));
+        alert(coolcats[checkboxlist[y].getAttribute("data-coolcat"))];
         var coolcat = checkboxlist[y].getAttribute("data-coolcat");
         if(
             chromebooks[x][coolcat] == checkboxlist[y].value && 
@@ -88,6 +88,9 @@ OEM:
     i_formfactor = 2;
     i_id = 3;
     
-    //var coolcats = []
+    var coolcats = [];
+    coolcats['oem'] = 1;
+    coolcats['formfactor'] = 2;
+    coolcats['id'] = 3;
 </script>
 </html>
