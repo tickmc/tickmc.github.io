@@ -20,12 +20,13 @@ function dealwithit() {
       for(var y = 0; y < checkboxlist.length; y++) {
         var coolcat = checkboxlist[y].getAttribute("data-coolcat");
         var coolcat_number = coolcats[coolcat];
+        var id_number = coolcats['id'];
         if(
             chromebooks[x][coolcat_number] == checkboxlist[y].value && 
             checkboxlist[y].checked
             )
         {
-            document.getElementById(chromebooks[x][i_id]).style.display = "block";
+            document.getElementById(chromebooks[x][id_number]).style.display = "block";
         }
       }
     }    
