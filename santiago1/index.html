@@ -4,7 +4,7 @@
   <head>
   <script>
 
-function dealwithit(coolcat) {
+function dealwithit() {
   
     var list = document.querySelectorAll('img');
     
@@ -19,7 +19,8 @@ function dealwithit(coolcat) {
       //alert(checkboxlist.length);
       //alert(x);
       for(var y = 0; y < checkboxlist.length; y++) {
-        alert(checkboxlist[y].getAttribute("data-coolcat"));
+        //alert(checkboxlist[y].getAttribute("data-coolcat"));
+        var coolcat = checkboxlist[y].getAttribute("data-coolcat");
         if(
             chromebooks[x][coolcat] == checkboxlist[y].value && 
             //checkboxlist[y].getAttribute("data-coolcat") == 'x' &&
@@ -47,7 +48,7 @@ Form Factor:
 <ul>
   <li>
     
-    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables">
+    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit();" id="convertables">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
@@ -55,11 +56,11 @@ Form Factor:
 OEM:
 <ul>
   <li>
-  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit(i_oem);" id="acer">
+  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit();" id="acer">
   <label for="acer">Acer</label>
   </li>
   <li>
-  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit(i_oem);" id="asus">
+  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit();" id="asus">
   <label for="asus">Asus</label>
   </li>
 </ul>
