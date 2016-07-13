@@ -19,12 +19,9 @@ function dealwithit() {
      
       for(var y = 0; y < checkboxlist.length; y++) {
         var coolcat = checkboxlist[y].getAttribute("data-coolcat");
-        //var coolcat2 = number(coolcat);
-        alert(coolcats[coolcat]);
-        alert(chromebooks[x][Number(coolcat)]);
-        alert(chromebooks[x][2]);
+        var coolcat_number = coolcats[coolcat];
         if(
-            chromebooks[x][coolcat] == checkboxlist[y].value && 
+            chromebooks[x][coolcat_number] == checkboxlist[y].value && 
             checkboxlist[y].checked
             )
         {
