@@ -5,9 +5,9 @@
   <script>
 
 function dealwithit(coolcat) {
-  //alert('hi'); 
   
     var list = document.querySelectorAll('img');
+    
     //blank all images 
     for (var i = 0; i < list.length; i++) {
         list[i].style.display = "none";
@@ -75,13 +75,13 @@ OEM:
 <script>
   //pop chromebooks array
   var chromebooks = [
-    ['chromebook-name', 'oem',  'formfactor',          'ID'],
+    //'chromebook-name', 'oem',  'formfactor',          'ID',
     ['Flip',            'Asus', 'convertable',          'flipa'],
     ['R11',             'Acer', 'convertable',          'r11a']
     
     ]
   
-  //gobals
+  //gobals - array offset position keys
     i_oem = 1;
     i_formfactor = 2;
     i_id = 3;
