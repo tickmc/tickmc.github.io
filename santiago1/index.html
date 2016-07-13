@@ -17,17 +17,18 @@ function dealwithit(coolcat) {
       
       var checkboxlist = document.querySelectorAll('input[type=checkbox]');
       //alert(checkboxlist.length);
-      alert(x);
+      //alert(x);
       for(var y = 0; y < checkboxlist.length; y++) {
         
         if(
             chromebooks[x][coolcat] == checkboxlist[y].value && 
             //checkboxlist[y].getAttribute("data-coolcat") == 'x' &&
+            alert(checkboxlist[y].getAttribute("data-coolcat"));
             checkboxlist[y].checked
             )
         {
             document.getElementById(chromebooks[x][i_id]).style.display = "block";
-            alert(chromebooks[x]);
+           // alert(chromebooks[x]);
         }
       }
     }    
