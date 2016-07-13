@@ -16,7 +16,7 @@ function dealwithit(coolcat) {
     for (var x = 0; x < chromebooks.length; x++) {
       
       var checkboxlist = document.querySelectorAll('input[type=checkbox]');
-      alert(checkboxlist.length);
+      //alert(checkboxlist.length);
       
       for(var y = 0; y < checkboxlist.length; y++) {
         
@@ -27,7 +27,7 @@ function dealwithit(coolcat) {
             )
         {
             document.getElementById(chromebooks[x][i_id]).style.display = "block";
-          
+            alert(chromebooks[x]);
         }
       }
     }    
