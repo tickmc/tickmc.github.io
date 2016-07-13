@@ -1,26 +1,10 @@
-
 <!DOCTYPE html>
+
 <html>
   <head>
   <script>
-function appear(selector) {
-    var list = document.querySelectorAll(selector);
-    for (var i = 0; i < list.length; i++) {
-        list[i].style.display = "block";
-        
-    }
-};
-function disappear(selector) {
-    var list = document.querySelectorAll(selector);
-    for (var i = 0; i < list.length; i++) {
-        list[i].style.display = "none";
-        
-    }
-};
 
-
-
-function dealwithit(coolcat, checkbox_this) {
+function dealwithit(coolcat) {
   //alert('hi'); 
   
     var list = document.querySelectorAll('img');
@@ -30,10 +14,16 @@ function dealwithit(coolcat, checkbox_this) {
     }
     
     for (var x = 0; x < chromebooks.length; x++) {
-      if(chromebooks[x][coolcat] == checkbox_this.value && checkbox_this.checked)
-      {
-          document.getElementById(chromebooks[x][i_id]).style.display = "block";
+      
+      var checkboxlist = document.querySelectorAll('input[type=checkbox]');
+      
+      for(var y = 0; y < checkboxlist.length; y++) {
         
+        if(chromebooks[x][coolcat] == checkboxlist[y].value && checkboxlist[y].checked)
+        {
+            document.getElementById(chromebooks[x][i_id]).style.display = "block";
+          
+        }
       }
     }    
     
@@ -46,14 +36,12 @@ function dealwithit(coolcat, checkbox_this) {
 
 <p>Select the things you are looking for and devices that match those features will pop up!</p>
 
-<!-- ** So I've figured out how to make other irrelevant options disappear after you select one. For example, if I select "Acer" then "Asus" should no longer be an option because there is no Chromebook that is both built by Acer and Asus. HOWEVER I do not know how to make it reset when a checkbox is unchecked -->
-
 Form Factor:
 
 <ul>
   <li>
     
-    <input type="checkbox" value='convertable' onclick="dealwithit(i_formfactor, this);" id="convertables" class="formfactor">
+    <input type="checkbox" data-coolcat="formfactor" value='convertable' onclick="dealwithit(i_formfactor);" id="convertables">
     <label for="convertables">Convertables</label>
   </li>
 </ul>
@@ -61,11 +49,11 @@ Form Factor:
 OEM:
 <ul>
   <li>
-  <input type="checkbox" value='Acer' onclick="dealwithit(i_oem, this);" id="acer" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Acer' onclick="dealwithit(i_oem);" id="acer">
   <label for="acer">Acer</label>
   </li>
   <li>
-  <input type="checkbox" value='Asus' onclick="dealwithit(i_oem, this);" id="asus" class="oem">
+  <input type="checkbox" data-coolcat="oem" value='Asus' onclick="dealwithit(i_oem);" id="asus">
   <label for="asus">Asus</label>
   </li>
 </ul>
@@ -73,8 +61,8 @@ OEM:
 
 
 
-<img id='r11a' class="convertable acer" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/acer-r11-title.png" style="width:100px">
-<img id='flipa' class="convertable asus" style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/asus-flip-title2.png" style="width:100px">
+<img id='r11a' style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/acer-r11-title.png" style="width:100px">
+<img id='flipa' style="display:none;" src="http://whichchromebookshouldibuy.com/wp-content/uploads/2016/02/asus-flip-title2.png" style="width:100px">
 
 
 
