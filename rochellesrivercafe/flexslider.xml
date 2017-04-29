@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Flexslider" />
+  <Content type="html">
+    <![CDATA[
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+ <script>
+/*! http://responsiveslides.com v1.53 by @viljamis */
+(function(c,I,B){c.fn.responsiveSlides=function(l){var a=c.extend({auto:!0,speed:500,timeout:4E3,pager:!1,nav:!1,random:!1,pause:!1,pauseControls:!0,prevText:"Previous",nextText:"Next",maxwidth:"",navContainer:"",manualControls:"",namespace:"rslides",before:function(){},after:function(){}},l);return this.each(function(){B++;var f=c(this),s,r,t,m,p,q,n=0,e=f.children(),C=e.size(),h=parseFloat(a.speed),D=parseFloat(a.timeout),u=parseFloat(a.maxwidth),g=a.namespace,d=g+B,E=g+"_nav "+d+"_nav",v=g+"_here",
+j=d+"_on",w=d+"_s",k=c("<ul class='"+g+"_tabs "+d+"_tabs' />"),x={"float":"left",position:"relative",opacity:1,zIndex:2},y={"float":"none",position:"absolute",opacity:0,zIndex:1},F=function(){var b=(document.body||document.documentElement).style,a="transition";if("string"===typeof b[a])return!0;s=["Moz","Webkit","Khtml","O","ms"];var a=a.charAt(0).toUpperCase()+a.substr(1),c;for(c=0;c<s.length;c++)if("string"===typeof b[s[c]+a])return!0;return!1}(),z=function(b){a.before();F?(e.removeClass(j).css(y).eq(b).addClass(j).css(x),
+n=b,setTimeout(function(){a.after()},h)):e.stop().fadeOut(h,function(){c(this).removeClass(j).css(y).css("opacity",1)}).eq(b).fadeIn(h,function(){c(this).addClass(j).css(x);a.after();n=b})};a.random&&(e.sort(function(){return Math.round(Math.random())-0.5}),f.empty().append(e));e.each(function(a){this.id=w+a});f.addClass(g+" "+d);l&&l.maxwidth&&f.css("max-width",u);e.hide().css(y).eq(0).addClass(j).css(x).show();F&&e.show().css({"-webkit-transition":"opacity "+h+"ms ease-in-out","-moz-transition":"opacity "+
+h+"ms ease-in-out","-o-transition":"opacity "+h+"ms ease-in-out",transition:"opacity "+h+"ms ease-in-out"});if(1<e.size()){if(D<h+100)return;if(a.pager&&!a.manualControls){var A=[];e.each(function(a){a+=1;A+="<li><a href='#' class='"+w+a+"'>"+a+"</a></li>"});k.append(A);l.navContainer?c(a.navContainer).append(k):f.after(k)}a.manualControls&&(k=c(a.manualControls),k.addClass(g+"_tabs "+d+"_tabs"));(a.pager||a.manualControls)&&k.find("li").each(function(a){c(this).addClass(w+(a+1))});if(a.pager||a.manualControls)q=
+k.find("a"),r=function(a){q.closest("li").removeClass(v).eq(a).addClass(v)};a.auto&&(t=function(){p=setInterval(function(){e.stop(!0,!0);var b=n+1<C?n+1:0;(a.pager||a.manualControls)&&r(b);z(b)},D)},t());m=function(){a.auto&&(clearInterval(p),t())};a.pause&&f.hover(function(){clearInterval(p)},function(){m()});if(a.pager||a.manualControls)q.bind("click",function(b){b.preventDefault();a.pauseControls||m();b=q.index(this);n===b||c("."+j).queue("fx").length||(r(b),z(b))}).eq(0).closest("li").addClass(v),
+a.pauseControls&&q.hover(function(){clearInterval(p)},function(){m()});if(a.nav){g="<a href='#' class='"+E+" prev'>"+a.prevText+"</a><a href='#' class='"+E+" next'>"+a.nextText+"</a>";l.navContainer?c(a.navContainer).append(g):f.after(g);var d=c("."+d+"_nav"),G=d.filter(".prev");d.bind("click",function(b){b.preventDefault();b=c("."+j);if(!b.queue("fx").length){var d=e.index(b);b=d-1;d=d+1<C?n+1:0;z(c(this)[0]===G[0]?b:d);if(a.pager||a.manualControls)r(c(this)[0]===G[0]?b:d);a.pauseControls||m()}});
+a.pauseControls&&d.hover(function(){clearInterval(p)},function(){m()})}}if("undefined"===typeof document.body.style.maxWidth&&l.maxwidth){var H=function(){f.css("width","100%");f.width()>u&&f.css("width",u)};H();c(I).bind("resize",function(){H()})}})}})(jQuery,this,0);
+</script>
+
+
+<div id="slides" style='width:100%;margin:0 auto;'>
+
+<img src="http://tickmc.github.io/rochellesrivercafe/sunny_outside_inside.png" height="325" width="513"  />
+<img src="http://tickmc.github.io/rochellesrivercafe/cherries.png" height="325" width="513"  />
+
+<img src="http://tickmc.github.io/rochellesrivercafe/wines_river.png" height="325" width="513"  />
+
+
+<img src="https://lh6.googleusercontent.com/-CXIT8o5ddbM/VDbfv50_dTI/AAAAAAAAgds/sX149qKm5tk/w998-h644-no/20140623_151528b.jpg" height="325" width="513"  />
+
+
+
+
+
+<img src="https://lh3.googleusercontent.com/-N7GbZLkV6Ng/T42VDFy57yI/AAAAAAAAClI/-D54JlebvPU/s800/RiversideCafe%2520137.JPG" height="325" width="513"  />
+<!--<img src="https://lh3.googleusercontent.com/-SETKtJbVOCY/T42U5rFP3QI/AAAAAAAACkU/v9CZNqk5ezg/s800/RiversideCafe%2520085.JPG" height="325" width="513"  />-->
+
+<img src="https://lh6.googleusercontent.com/-DYgQJOasC08/VDbfv-DX3pI/AAAAAAAAgd0/vFlMdASsSUo/w1026-h650-no/20141007_120847b.jpg" height="325" width="513"  />
+
+
+<img src="https://lh3.googleusercontent.com/-5DUR-slbwMk/T42U_ccMzyI/AAAAAAAACkw/U75P3iWWnsw/s800/RiversideCafe%2520131.JPG" height="325" width="513"  />
+<img src="https://lh5.googleusercontent.com/-7oiQBCER4lo/T42VMT2yfFI/AAAAAAAACmE/LSZJeyAswwY/s800/RiversideCafe%2520163.JPG" height="325" width="513"  />
+
+
+<img src="https://lh6.googleusercontent.com/-N17biul1XHw/T42VEjr6OdI/AAAAAAAAClQ/Ge6nIp_mFV4/s800/RiversideCafe%2520142.JPG" height="325" width="513"  />
+
+<img src="https://lh5.googleusercontent.com/-sb7um_802g4/VDbfvxgB4nI/AAAAAAAAgdw/exFgzZVKEJs/w904-h606-no/20141007_121023b.jpg" height="325" width="513"  />
+
+
+<img src="https://lh5.googleusercontent.com/--T-9dvJrRIM/T42U5-IAY6I/AAAAAAAACkc/GcGm4A_RpEI/s800/RiversideCafe%2520123.JPG" height="325" width="513"  />
+<img src="https://lh4.googleusercontent.com/-XYQx4RsIc5o/T42VQBCGrII/AAAAAAAACmY/7dK4XWmeRH0/s800/RiversideCafe%2520174.JPG" height="325" width="513"  />
+
+
+<img src="https://lh6.googleusercontent.com/-n6BtlO340ls/T42VJbRzS0I/AAAAAAAACl0/iXY5wBW4S6g/s800/RiversideCafe%2520161.JPG" height="325" width="513"  />
+
+<img src="https://lh5.googleusercontent.com/-4XgzuSoTUN8/Uk3myP1r2cI/AAAAAAAAU_0/mYEXfKYLnHs/s800/RB12_reduced.jpg" height="325" width="513"  />
+
+
+</div>
+
+
+<script type="text/javascript">
+   jQuery(function() {
+
+      // Slideshow 2
+      $("#slides").responsiveSlides({
+        fade: 500,
+        auto: true,
+        maxwidth: 513,
+        namespace: 'anotherslideshow',
+        pager: false,
+        nav: false
+      });
+
+    });
+ </script>
+    ]]>
+  </Content>
+</Module>
