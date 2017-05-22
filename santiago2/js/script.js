@@ -18,6 +18,12 @@ $(document).ready(function() {
   var aradius = $(this).attr("aradius");
   var apad = $(this).attr("apad");
     
+  //initialise buttons
+  $(this).css("background", bg);
+  $(this).css("border-color", border);
+  $(this).css("color", color); 
+  $(this).css("border-radius", radius);
+  $(this).css("padding", pad);
     
      if($(this).attr("abg")) {
           $(this).css("background", abg);
